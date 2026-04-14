@@ -1,0 +1,22 @@
+{
+  "name": "changelog-ai",
+  "version": "1.0.0",
+  "description": "AI-powered changelog generator from git history",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "cdlog": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node tests/test-mock.js"
+  },
+  "keywords": ["changelog", "git", "ai", "cli", "github-releases"],
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^21.0.0",
+    "chalk": "^5.0.0",
+    "commander": "^12.0.0",
+    "ora": "^8.0.0"
+  }
+}
