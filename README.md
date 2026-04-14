@@ -16,7 +16,7 @@
 
 ### Installation
 ```bash
-git clone https://github.com/YOUR_USERNAME/cdlog.git
+git clone https://github.com/Cawfie/cdlog.git
 cd cdlog
 npm install
 npm link
@@ -31,15 +31,77 @@ ANTHROPIC_API_KEY=your_key_here
 ```
 
 ### Usage
+
+#### 🔍 1. Preview the Magic
+Summarize what's happening right now and see it in your terminal.
 ```bash
-# Generate and display in terminal
 cdlog explain v1.0.0 HEAD
+```
 
-# Save to CHANGELOG.md
-cdlog explain v1.0.0 HEAD --output CHANGELOG.md
+#### ✍️ 2. Build Your History
+Automatically prepend the new version to your `CHANGELOG.md` without losing old entries.
+```bash
+cdlog explain v1.0.0 HEAD --append
+```
 
-# Push directly to GitHub Releases
+#### 🚀 3. Official Release
+Create a human-readable release directly on GitHub in one go.
+```bash
 cdlog explain v1.0.0 HEAD --push
+```
+
+#### 📂 4. JSON Export
+Need to feed the data into a custom dashboard or website?
+```bash
+cdlog explain v1.0.0 HEAD --format json
+```
+
+---
+
+## ⚙️ Advanced Options
+
+### 🧠 Choosing your "Brain"
+You can swap between AI models on the fly. As long as you have the keys in your `.env`, it just works.
+```bash
+# Power through with Gemini 1.5 Flash (Fast & Free)
+cdlog explain v1.0.0 HEAD --model gemini-1.5-flash
+
+# Get deep insights with Claude 3 Opus
+cdlog explain v1.0.0 HEAD --model claude-3-opus-20240229
+```
+
+### 🏷️ Explore Your Versions
+Not sure what tags you have? Quickly list the last 10 versions of your project.
+```bash
+cdlog tags --count 5
+```
+
+### 🎯 Targeted Repositories
+You don't have to be in the folder to run the command. Just point it to any project.
+```bash
+cdlog explain v1.0.0 v2.0.0 --repo C:/Users/Projects/MyAwesomeApp
+```
+
+---
+
+## 🛠️ Global Configuration
+
+Stop typing flags! Create a `changelog.config.json` file in your repo root to set your permanent preferences.
+
+```bash
+cdlog init
+```
+
+**Example Config:**
+```json
+{
+  "model": "gemini-1.5-flash",
+  "changelogFile": "HISTORY.md",
+  "excludeTypes": ["chore", "ci", "test", "style"],
+  "github": {
+    "draft": true
+  }
+}
 ```
 
 ## 🛠️ Tech Stack
